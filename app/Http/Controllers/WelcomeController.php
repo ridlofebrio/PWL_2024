@@ -9,16 +9,11 @@ class WelcomeController extends Controller
     public function hello() {
         return 'Selamat Datang';
        }
-    public function about(){
-        $nama = "Muhammad Ridlo Febrio Putra";
-        $nim = "2241720098";
+       
+        public function greeting(){
+            return view('blog.hello')
+            ->with('name','Fenrio')
+            ->with('occupation','Astronaut');}
+ }
+ 
 
-        return $nama . " dan " . $nim;
-    }
-    public function articel($id){
-        if ($id != null) {
-            $halaman = $id;
-        }
-        return "Halaman Artikel dengan yang ke". $halaman;
-    }
-}
