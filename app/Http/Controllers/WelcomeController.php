@@ -9,10 +9,13 @@ class WelcomeController extends Controller
     public function hello() {
         return 'Selamat Datang';
        }
+
+    //    public function greeting(){
+    //     return view('blog.hello', ['name' => 'Febrio']);}
        
         public function greeting(){
             return view('blog.hello')
-            ->with('name','Fenrio')
+            ->with('name','Febrio')
             ->with('occupation','Astronaut');}
  }
  

@@ -11,6 +11,8 @@ use App\Http\Controllers\PhotoController;
 
 Route::get('/hello', function() {return 'Hello World';});
 
+Route::get('/world', function() {return 'World';});
+
 Route::get('/', function () {
     return 'selamat datang';
    });
@@ -27,6 +29,11 @@ Route::get('/posts/{post}/comments/{comment}', function
     ($postId, $commentId) {
      return 'Pos ke-'.$postId." Komentar ke-: ".$commentId;
     });
+
+Route::get('/halaman/{id}',function($halaman){
+    return "Halaman Artikel dengan ID". $halaman;
+}
+);
     
 Route::get('/user/{name?}', function ($name=null) {
     return 'Nama saya '.$name;
@@ -76,17 +83,18 @@ Route::get('/user/{name?}', function ($name='John') {
 Route::view('/welcome', 'welcome');
 Route::view('/welcome', 'welcome', ['name' => 'Taylor']);
 
-// Route::get('/', [PageController::class,'hello']);
+Route::get('/', [PageController::class,'hello']);
 
-// Route::get('/about', [WelcomeController::class,'about']);
+Route::get('/about', [WelcomeController::class,'about']);
 
-// Route::get('/articel/{id}', [WelcomeController::class,'articel']);
+Route::get('/articel/{id}', [WelcomeController::class,'articel']);
 
 Route::get('/', [HomeController::class,'hello']);
 
 Route::get('/about', [AboutController::class,'about']);
 
 Route::get('/articel/{id}', [ArticleController::class,'articel']);
+
 
 
 Route::resource('photos', PhotoController::class);
@@ -100,7 +108,7 @@ Route::resource('photos', PhotoController::class)->except([
 
 
 // Route::get('/greeting', function () {
-//     return view('hello', ['name' => 'Febrio']);
+//     return view('blog.hello', ['name' => 'Febrio']);
 // });
 
 
